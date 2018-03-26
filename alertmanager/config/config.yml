@@ -1,0 +1,30 @@
+global:
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'do-not-reply@localhost.com'
+  smtp_require_tls: false
+route:
+  receiver: 'reciever_default'
+  group_wait: 1s
+  group_interval: 1s
+  repeat_interval: 1s
+  group_by: [cluster, alertname]
+  # All alerts that do not match the following child routes
+  # will remain at the root node and be dispatched to 'default-receiver'.
+
+  receiver: 'reciever_default'
+  routes:
+  - match_re:
+      severity: ^(.*)$
+    receiver: 'alerta'
+
+receivers:
+- name: 'reciever_default'
+  webhook_configs:
+  - url: 'http://192.168.122.110:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
+    send_resolved: true
+
+- name: 'alerta'
+  webhook_configs:
+  - url: 'http://192.168.122.110:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
+    send_resolved: true

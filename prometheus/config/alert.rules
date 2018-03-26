@@ -1,0 +1,9 @@
+groups:
+- name: example
+  rules:
+  - alert: HighRateRequest
+    expr: delta(http_requests_total[10s]) > 10
+    labels:
+      severity: page
+    annotations:
+      summary: High Rate Request
