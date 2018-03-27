@@ -21,10 +21,10 @@ route:
 receivers:
 - name: 'reciever_default'
   webhook_configs:
-  - url: 'http://192.168.122.110:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
+  - url: 'http://docker_host_ip:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
     send_resolved: true
 
 - name: 'alerta'
   webhook_configs:
-  - url: 'http://192.168.122.110:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
+  - url: 'http://docker_host_ip:8080/api/webhooks/prometheus?api-key=pGAl4vN6INnA0rjYPlb1_YiswM7cpv_-coaLBZo2'
     send_resolved: true

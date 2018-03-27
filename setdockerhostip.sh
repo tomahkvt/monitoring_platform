@@ -5,3 +5,6 @@ find alertmanager -type  f -name \* -exec sed -i -r 's/docker_host_ip/'$DOCKER_H
 find prometheus -type f -name \* -exec sed -i -r 's/docker_host_ip/'$DOCKER_HOST_IP'/g' {} \;
 find telegraf -type f -name \* -exec sed -i -r 's/docker_host_ip/'$DOCKER_HOST_IP'/g' {} \;
 
+chmod o+w prometheus/data
+
+
