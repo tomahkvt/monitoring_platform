@@ -7,23 +7,23 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['docker_host_ip:9090']
 
-  - job_name: 'node'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['docker_host_ip:9100']
-
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['docker_host_ip:8081']
-
-
-  - job_name: 'telegraf'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['docker_host_ip:9273']
+#  - job_name: 'node'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['docker_host_ip:9100']
+#
+#  - job_name: 'cadvisor'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['docker_host_ip:8081']
+#
+#
+#  - job_name: 'telegraf'
+#    scrape_interval: 5s
+#    static_configs:
+#      - targets: ['docker_host_ip:9273']
 
 alerting:
   alertmanagers:
